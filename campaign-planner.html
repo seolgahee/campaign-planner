@@ -361,6 +361,52 @@ const FIGMA_TOKEN = '__FIGMA_TOKEN__';
 const CLAUDE_MODEL = 'claude-sonnet-4-6';
 const CLAUDE_ENDPOINT = 'https://api.anthropic.com/v1/messages';
 
+// ── Mock 모드 (API 없이 로컬 테스트용) ────────
+const MOCK_MODE = true;
+const MOCK_RESULT = {
+  "campaign_title": "2024 SS 스프링 컬렉션",
+  "campaign_sub": "새로운 계절, 새로운 나",
+  "copies": {
+    "main_top": "SPRING HAS COME",
+    "main_top_sub": "가장 나다운 봄을 시작하세요",
+    "category": "NEW ARRIVALS",
+    "category_sub": "이번 시즌 주목해야 할 아이템",
+    "promotion": "SPECIAL OFFER",
+    "promotion_sub": "한정 기간 특별 혜택",
+    "modal": "지금 바로 만나보세요",
+    "modal_sub": "놓치면 후회할 SS 컬렉션"
+  },
+  "benefit_copy": "3만원 이상 구매 시 무료배송",
+  "products": [
+    {
+      "num": 1,
+      "name_kr": "스프링 오버핏 셔츠",
+      "name_en": "SPRING OVERFIT SHIRT",
+      "colors": ["WHITE", "BEIGE"],
+      "description": "매일 손이 가는 트렌디 & 데일리 셔츠",
+      "points": ["부드러운 터치감의 옥스포드 코튼", "어깨선을 살린 오버핏 실루엣"],
+      "set_item": "",
+      "anim": "페이드인-아웃",
+      "filenames": []
+    },
+    {
+      "num": 2,
+      "name_kr": "와이드 데님 팬츠",
+      "name_en": "WIDE DENIM PANTS",
+      "colors": ["LIGHT BLUE", "DARK NAVY"],
+      "description": "자연스러운 빈티지 워싱과 편안한 루즈핏",
+      "points": ["고중량 데님 소재", "밑단 롤업 디테일"],
+      "set_item": "",
+      "anim": "슬라이드",
+      "filenames": []
+    }
+  ],
+  "image_layout": [
+    { "image_index": 0, "role": "KV메인", "product_num": 1, "usage": "상단 전체 와이드 배치", "copy_overlay": "SPRING HAS COME" },
+    { "image_index": 1, "role": "서브컷", "product_num": 2, "usage": "좌측 50% 배치", "copy_overlay": "NEW ARRIVALS" }
+  ]
+};
+
 // ── 브랜드 DNA ─────────────────────────────
 const DNA = {
   'mlb-kids': {
@@ -756,6 +802,18 @@ async function generate() {
   const lt = setInterval(() => { document.getElementById('load-msg').textContent = msgs[++mi % msgs.length]; }, 1800);
 
   try {
+    if (MOCK_MODE) {
+      await new Promise(r => setTimeout(r, 2000));
+      clearInterval(lt);
+      document.getElementById('loading').className = 'loading';
+      lastResult = JSON.parse(JSON.stringify(MOCK_RESULT));
+      mergeInputtedProducts(lastResult);
+      renderSlides(lastResult);
+      btn.disabled = false;
+      btn.textContent = '다시 생성하기 →';
+      return;
+    }
+
     const content = [{ type: 'text', text: buildPrompt() }];
     refImgs.forEach((img, i) => {
       content.push({ type: 'image', source: { type: 'base64', media_type: img.file.type || 'image/jpeg', data: img.dataUrl.split(',')[1] } });
