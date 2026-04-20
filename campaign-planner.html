@@ -355,9 +355,11 @@ textarea{resize:vertical;min-height:70px;line-height:1.6;}
 
 <script>
 // ── 환경 설정 ──────────────────────────────
-// 배포 시 FIGMA_TOKEN을 실제 토큰으로 교체
+// FIGMA_TOKEN: 로컬 테스트용. 배포 시 Netlify 환경변수(FIGMA_TOKEN)로 처리됨.
 const FIGMA_TOKEN = 'YOUR_FIGMA_TOKEN_HERE';
-const CLAUDE_MODEL = 'claude-sonnet-4-20250514';
+const CLAUDE_MODEL = 'claude-sonnet-4-6';
+// Claude API 엔드포인트: Netlify 프록시(/api/claude) 경유 → CORS 해결 + API 키 보호
+const CLAUDE_ENDPOINT = '/api/claude';
 
 // ── 브랜드 DNA ─────────────────────────────
 const DNA = {
@@ -764,10 +766,10 @@ async function generate() {
       content.push({ type: 'text', text: `화보사진${i+1}[${img.tag}]: 구도·상품노출도·색감 파악해 최적 배치 제안해주세요.` });
     });
 
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
+    const res = await fetch(CLAUDE_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ model: CLAUDE_MODEL, max_tokens: 1000, messages: [{ role: 'user', content }] })
+      body: JSON.stringify({ model: CLAUDE_MODEL, max_tokens: 8000, messages: [{ role: 'user', content }] })
     });
     const data = await res.json();
     clearInterval(lt);
