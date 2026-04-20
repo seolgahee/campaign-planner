@@ -14,7 +14,10 @@ a{color:inherit;text-decoration:none;}
 button{cursor:pointer;font-family:'Noto Sans KR',sans-serif;}
 
 /* ── 레이아웃 ── */
-.wrap{max-width:1040px;margin:0 auto;padding:2rem 1.5rem 6rem;}
+.wrap{max-width:1600px;margin:0 auto;padding:2rem 1.5rem 6rem;}
+.main-layout{display:grid;grid-template-columns:480px 1fr;gap:2rem;align-items:start;}
+.left-panel{position:sticky;top:1.5rem;max-height:calc(100vh - 3rem);overflow-y:auto;}
+.right-panel{min-height:400px;}
 
 /* ── 헤더 ── */
 .page-hdr{display:flex;align-items:flex-end;justify-content:space-between;padding-bottom:1.25rem;border-bottom:1px solid #e0e0e0;margin-bottom:1.75rem;}
@@ -238,6 +241,9 @@ textarea{resize:vertical;min-height:70px;line-height:1.6;}
     <span class="ver-badge">v5 · F&amp;F DTC</span>
   </div>
 
+  <div class="main-layout">
+  <div class="left-panel">
+
   <!-- 01 브랜드 -->
   <div class="card">
     <div class="card-hdr"><span class="card-num">01</span><span class="card-title">브랜드</span></div>
@@ -337,8 +343,11 @@ textarea{resize:vertical;min-height:70px;line-height:1.6;}
   <button class="gen-btn" id="gen-btn" onclick="generate()" disabled>브랜드를 먼저 선택해주세요</button>
   <div class="err-box" id="err-box"></div>
 
-  <!-- 출력 -->
-  <div class="output" id="output">
+  </div><!-- /left-panel -->
+
+  <!-- 오른쪽: 기획안 출력 -->
+  <div class="right-panel">
+  <div class="output on" id="output">
     <div class="out-hdr">
       <div class="out-title">기획안</div>
       <div class="out-actions">
@@ -347,9 +356,12 @@ textarea{resize:vertical;min-height:70px;line-height:1.6;}
       </div>
     </div>
     <div class="loading" id="loading"><div class="spinner"></div><div class="load-msg" id="load-msg">분석 중...</div></div>
-    <div id="slides-out"></div>
+    <div id="slides-out"><div style="padding:3rem;text-align:center;color:#bbb;font-size:13px;">브랜드를 선택하고 생성하면 여기에 기획안이 표시됩니다.</div></div>
     <div class="figma-msg" id="figma-msg"></div>
   </div>
+  </div><!-- /right-panel -->
+
+  </div><!-- /main-layout -->
 
 </div>
 
@@ -364,9 +376,21 @@ const CLAUDE_ENDPOINT = 'https://api.anthropic.com/v1/messages';
 // ── Mock 모드 (API 없이 로컬 테스트용) ────────
 const MOCK_MODE = true;
 const MOCK_RESULT = {
-  "campaign_title": "2024 SS 스프링 컬렉션",
-  "campaign_sub": "새로운 계절, 새로운 나",
-  "copies": {
+  "concept": {
+    "headline": "SPRING HAS COME",
+    "sub_headline": "New Season, New You",
+    "tagline": "지금 이 순간, 가장 나다운 봄",
+    "description": "25SS 시즌을 맞아 활동적이고 세련된 봄 무드를 담은 기획전. 청량한 컬러와 편안한 실루엣으로 데일리 룩을 완성하세요.",
+    "description_mo": "봄 신상 컬렉션 — 가장 나다운 스타일로"
+  },
+  "main_copy": {
+    "main": "지금 바로 봄을 입어보세요",
+    "sub": "청량한 컬러와 편안한 핏으로 완성하는 데일리 봄 룩",
+    "cta": "SHOP NOW"
+  },
+  "design_mood": "밝고 청량한 화이트/베이지 베이스. 자연광 느낌의 화보컷 위주 구성. 여백을 살린 미니멀 레이아웃.",
+  "design_request": "KV는 전신컷 + 카피 오버레이. 상품컷은 누끼 기반으로 깔끔하게.",
+  "banner_copy": {
     "main_top": "SPRING HAS COME",
     "main_top_sub": "가장 나다운 봄을 시작하세요",
     "category": "NEW ARRIVALS",
@@ -379,7 +403,7 @@ const MOCK_RESULT = {
   "benefit_copy": "3만원 이상 구매 시 무료배송",
   "products": [
     {
-      "num": 1,
+      "num": 1, "section_num": 1,
       "name_kr": "스프링 오버핏 셔츠",
       "name_en": "SPRING OVERFIT SHIRT",
       "colors": ["WHITE", "BEIGE"],
@@ -390,7 +414,7 @@ const MOCK_RESULT = {
       "filenames": []
     },
     {
-      "num": 2,
+      "num": 2, "section_num": 1,
       "name_kr": "와이드 데님 팬츠",
       "name_en": "WIDE DENIM PANTS",
       "colors": ["LIGHT BLUE", "DARK NAVY"],
