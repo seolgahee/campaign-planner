@@ -132,82 +132,98 @@ textarea{resize:vertical;min-height:70px;line-height:1.6;}
 .figma-action:hover{background:#faf5ff;}
 .figma-action:disabled{opacity:.3;cursor:not-allowed;}
 
-/* ── PPT 슬라이드 ── */
-.ppt-slide{border:1px solid #e0e0e0;border-radius:12px;background:#fff;margin-bottom:10px;overflow:hidden;}
-.slide-meta{display:grid;grid-template-columns:110px 1fr 1fr 1fr;border-bottom:1px solid #f0f0f0;background:#fafafa;}
-.smc{padding:8px 10px;border-right:1px solid #f0f0f0;font-size:10px;}
-.smc:last-child{border-right:none;}
-.smc strong{display:block;font-size:9px;color:#aaa;font-family:'DM Mono',monospace;letter-spacing:.3px;margin-bottom:2px;}
-.smc span{font-size:11px;color:#111;font-weight:500;line-height:1.4;}
-.slide-body{padding:16px;}
-.slide-top-row{display:flex;align-items:center;gap:8px;margin-bottom:14px;}
-.sl-num{font-family:'DM Mono',monospace;font-size:10px;color:#fff;background:#111;border-radius:4px;padding:2px 7px;}
-.sl-page{font-size:11px;color:#888;}
-.sl-copy-btn{margin-left:auto;font-size:10px;padding:4px 9px;border-radius:4px;border:1px solid #e0e0e0;background:#fff;color:#888;transition:all .15s;}
+/* ── 비주얼 스토리보드 ── */
+.sb-wrap{background:#fff;border:1px solid #e0e0e0;border-radius:12px;overflow:hidden;}
+.sb-tabs{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;}
+.sb-tab{padding:10px 14px;font-size:11px;font-weight:600;text-align:center;color:#fff;letter-spacing:-.2px;}
+.sb-tab.yellow{background:#f5c400;color:#222;}
+.sb-tab.blue{background:#2563eb;}
+.sb-tab.cyan{background:#0891b2;}
+.sb-tab.dark{background:#1a1a1a;}
+
+/* KV 배너 */
+.sb-row{border-bottom:1px solid #e8e8e8;}
+.sb-row-hdr{display:flex;align-items:center;gap:10px;padding:9px 14px;background:#fafafa;border-bottom:1px solid #f0f0f0;}
+.sb-row-label{font-size:9px;font-weight:700;color:#555;font-family:'DM Mono',monospace;letter-spacing:.4px;}
+.kv-banners-row{display:grid;grid-template-columns:1fr 1fr;}
+.kv-banner-wrap{position:relative;border-right:1px solid #e8e8e8;}
+.kv-banner-wrap:last-child{border-right:none;}
+.kv-banner-badge{position:absolute;top:8px;left:8px;font-size:9px;font-family:'DM Mono',monospace;font-weight:700;background:rgba(0,0,0,.65);color:#fff;padding:2px 7px;border-radius:3px;z-index:2;}
+.kv-banner{width:100%;aspect-ratio:16/5;background:#222;position:relative;overflow:hidden;display:flex;align-items:flex-end;}
+.kv-banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.82;}
+.kv-banner-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;color:#888;font-size:10px;background:#e8e8e8;}
+.kv-banner-ph svg{opacity:.3;}
+.kv-banner-overlay{position:relative;z-index:1;padding:10px 14px;background:linear-gradient(transparent,rgba(0,0,0,.55));width:100%;}
+.kv-brand-lbl{font-size:8px;font-family:'DM Mono',monospace;color:rgba(255,255,255,.75);letter-spacing:1.5px;margin-bottom:2px;}
+.kv-banner-headline{font-size:20px;font-weight:800;color:#fff;line-height:1.1;letter-spacing:-.3px;text-shadow:0 1px 6px rgba(0,0,0,.5);}
+.kv-banner-sub{font-size:9px;color:rgba(255,255,255,.75);margin-top:3px;}
+.kv-banner-info{padding:10px 14px;border-top:1px solid #f0f0f0;background:#fff;}
+.kv-info-lbl{font-size:8px;font-family:'DM Mono',monospace;color:#bbb;letter-spacing:.4px;margin-bottom:3px;}
+.kv-info-main{font-size:12px;font-weight:600;color:#111;line-height:1.5;}
+.kv-info-sub{font-size:10px;color:#666;margin-top:2px;line-height:1.6;}
+
+/* 컨셉/무드 행 */
+.sb-design-row{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #f0f0f0;}
+.sb-design-col{padding:12px 14px;border-right:1px solid #f0f0f0;}
+.sb-design-col:last-child{border-right:none;}
+.sb-col-label{font-size:8px;font-family:'DM Mono',monospace;color:#bbb;letter-spacing:.5px;margin-bottom:5px;text-transform:uppercase;}
+.sb-col-text{font-size:11px;color:#333;line-height:1.75;}
+
+/* 섹션 헤더 */
+.sb-prod-section{border-bottom:1px solid #e8e8e8;}
+.sb-prod-section-hdr{display:flex;align-items:center;gap:8px;padding:8px 14px;background:#f8f8f8;border-bottom:1px solid #f0f0f0;}
+.sb-sec-badge{font-size:9px;font-family:'DM Mono',monospace;font-weight:700;color:#fff;border-radius:3px;padding:2px 8px;letter-spacing:.3px;}
+.sb-sec-badge.cl-b{background:#2563eb;}
+.sb-sec-badge.cl-c{background:#059669;}
+.sb-sec-badge.cl-d{background:#d97706;}
+.sb-sec-badge.cl-e{background:#7c3aed;}
+.sb-sec-badge.cl-f{background:#dc2626;}
+.sb-sec-name{font-size:11px;font-weight:600;color:#111;}
+
+/* 상품 룩 행 */
+.sb-prod-row{display:grid;grid-template-columns:160px 1fr 200px;border-bottom:1px solid #f0f0f0;}
+.sb-prod-row:last-child{border-bottom:none;}
+.sb-prod-main{border-right:1px solid #f0f0f0;}
+.sb-prod-main-label{font-size:8px;font-family:'DM Mono',monospace;color:#aaa;padding:5px 8px;background:#fafafa;border-bottom:1px solid #f0f0f0;}
+.sb-prod-main-photo{aspect-ratio:3/4;background:#f0f0f0;overflow:hidden;display:flex;align-items:center;justify-content:center;position:relative;}
+.sb-prod-main-photo img{width:100%;height:100%;object-fit:cover;}
+.sb-prod-main-photo-ph{font-size:9px;color:#ccc;text-align:center;line-height:1.6;}
+
+.sb-look-area{border-right:1px solid #f0f0f0;}
+.sb-look-cols{display:grid;grid-template-columns:repeat(3,1fr);height:100%;}
+.sb-look-col{border-right:1px solid #f0f0f0;display:flex;flex-direction:column;}
+.sb-look-col:last-child{border-right:none;}
+.sb-look-col-hdr{font-size:8px;font-family:'DM Mono',monospace;color:#aaa;text-align:center;padding:5px 4px;background:#fafafa;border-bottom:1px solid #f0f0f0;letter-spacing:.3px;}
+.sb-look-photo{flex:1;aspect-ratio:3/4;background:#ebebeb;overflow:hidden;display:flex;align-items:center;justify-content:center;position:relative;}
+.sb-look-photo img{width:100%;height:100%;object-fit:cover;}
+.sb-look-photo-ph{font-size:9px;color:#ccc;font-family:'DM Mono',monospace;}
+.sb-look-copy{padding:6px 8px;font-size:9px;color:#888;line-height:1.5;border-top:1px solid #f0f0f0;}
+
+.sb-prod-copy{padding:12px 12px;}
+.sb-pc-name{font-size:12px;font-weight:600;color:#111;margin-bottom:2px;line-height:1.4;}
+.sb-pc-name-en{font-size:9px;color:#999;font-family:'DM Mono',monospace;margin-bottom:6px;}
+.sb-pc-colors{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:8px;}
+.sb-pc-color{font-size:8px;padding:2px 6px;border-radius:99px;border:1px solid #ddd;color:#555;}
+.sb-pc-desc{font-size:10px;color:#333;line-height:1.75;margin-bottom:6px;}
+.sb-pc-points{display:flex;flex-direction:column;gap:3px;margin-bottom:8px;}
+.sb-pc-pt{font-size:9px;color:#444;display:flex;gap:4px;line-height:1.5;}
+.sb-pc-pt::before{content:'✓';color:#111;flex-shrink:0;font-weight:700;}
+.sb-pc-set{font-size:9px;color:#888;background:#f5f5f3;border:1px solid #eee;border-radius:4px;padding:3px 7px;display:inline-block;margin-bottom:5px;}
+.sb-pc-anim{font-size:9px;color:#7c3aed;background:#faf5ff;border:1px solid #ddd8fe;border-radius:4px;padding:3px 7px;display:inline-block;font-family:'DM Mono',monospace;margin-bottom:5px;}
+.sb-pc-files{font-size:8px;color:#aaa;font-family:'DM Mono',monospace;margin-top:4px;line-height:1.8;}
+
+/* 배너 카피 */
+.sb-banner-wrap{padding:14px 14px;}
+.sb-banner-note{font-size:10px;color:#888;background:#fafafa;border:1px solid #f0f0f0;border-radius:6px;padding:7px 10px;margin-bottom:10px;font-family:'DM Mono',monospace;}
+.sb-banner-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.sb-banner-card{border:1px solid #f0f0f0;border-radius:8px;padding:10px 12px;background:#fafafa;}
+.sb-bc-type{font-size:8px;font-family:'DM Mono',monospace;color:#aaa;margin-bottom:4px;letter-spacing:.3px;}
+.sb-bc-main{font-size:12px;font-weight:600;color:#111;line-height:1.5;}
+.sb-bc-sub{font-size:10px;color:#555;margin-top:3px;line-height:1.6;}
+
+/* 슬라이드 복사 버튼 (하위호환) */
+.sl-copy-btn{font-size:10px;padding:4px 9px;border-radius:4px;border:1px solid #e0e0e0;background:#fff;color:#888;cursor:pointer;margin-left:auto;transition:all .15s;}
 .sl-copy-btn:hover{border-color:#555;color:#555;}
-
-/* ── 키비주얼 슬라이드 ── */
-.kv-layout{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-.kv-copy-box{background:#f5f5f3;border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:10px;}
-.kv-lbl{font-size:9px;font-family:'DM Mono',monospace;color:#aaa;letter-spacing:.4px;margin-bottom:3px;}
-.kv-headline{font-size:24px;font-weight:600;color:#111;line-height:1.2;letter-spacing:-.5px;}
-.kv-sub-en{font-size:11px;color:#888;font-family:'DM Mono',monospace;margin-top:2px;}
-.kv-tagline{font-size:12px;color:#555;font-style:italic;margin-top:4px;}
-.kv-main-copy{font-size:14px;font-weight:600;color:#111;}
-.kv-sub-copy{font-size:11px;color:#555;margin-top:3px;}
-.kv-cta{display:inline-block;font-size:10px;padding:4px 10px;border-radius:4px;border:1px solid #ccc;color:#555;background:#fff;margin-top:4px;}
-.kv-desc-box{border:1px solid #f0f0f0;border-radius:8px;padding:12px;background:#fff;}
-.kv-desc-lbl{font-size:9px;font-family:'DM Mono',monospace;color:#aaa;letter-spacing:.4px;margin-bottom:6px;}
-.kv-desc-text{font-size:11px;color:#333;line-height:1.75;}
-.mood-box{padding:8px 10px;background:#fffbeb;border-radius:6px;border:1px solid #fef3c7;font-size:10px;color:#555;line-height:1.6;margin-top:8px;}
-.mood-box strong{color:#92400e;font-size:9px;font-family:'DM Mono',monospace;letter-spacing:.3px;display:block;margin-bottom:3px;}
-.design-req-box{padding:8px 10px;background:#eff6ff;border-radius:6px;border:1px solid #bfdbfe;font-size:10px;color:#555;line-height:1.6;margin-top:6px;}
-.design-req-box strong{color:#1e40af;font-size:9px;font-family:'DM Mono',monospace;letter-spacing:.3px;display:block;margin-bottom:3px;}
-.ref-note{padding:7px 10px;background:#fafafa;border-radius:6px;border:1px solid #f0f0f0;font-size:10px;color:#888;margin-top:6px;}
-.ref-note strong{color:#555;}
-.kv-photos{margin-top:0;}
-.kv-ph-lbl{font-size:9px;font-family:'DM Mono',monospace;color:#aaa;letter-spacing:.4px;margin-bottom:6px;}
-.kv-ph-grid{display:flex;flex-wrap:wrap;gap:6px;}
-.ph-slot{width:64px;height:64px;border-radius:6px;border:1px solid #e0e0e0;background:#f5f5f3;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;font-size:9px;color:#ccc;text-align:center;line-height:1.3;}
-.ph-slot img{width:100%;height:100%;object-fit:cover;position:absolute;}
-.ph-slot-tag{position:absolute;bottom:0;left:0;right:0;font-size:8px;background:rgba(0,0,0,.5);color:#fff;text-align:center;padding:2px;}
-.ph-filename{font-size:9px;color:#888;margin-top:3px;font-family:'DM Mono',monospace;text-align:center;max-width:64px;word-break:break-all;line-height:1.3;}
-
-/* ── 상품 상세 슬라이드 ── */
-.prod-section-hdr{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid #f0f0f0;margin-bottom:10px;}
-.prod-section-num{font-size:11px;font-weight:600;color:#111;}
-.prod-section-name{font-size:11px;color:#888;}
-.prod-cards{display:flex;flex-direction:column;gap:10px;margin-bottom:14px;}
-.prod-card{border:1px solid #f0f0f0;border-radius:8px;overflow:hidden;}
-.pc-hdr{display:flex;align-items:flex-start;gap:10px;padding:9px 12px;background:#fafafa;border-bottom:1px solid #f0f0f0;}
-.pc-num{font-family:'DM Mono',monospace;font-size:10px;color:#fff;background:#111;border-radius:4px;padding:2px 8px;flex-shrink:0;margin-top:1px;}
-.pc-info{flex:1;}
-.pc-name{font-size:12px;font-weight:600;color:#111;line-height:1.4;}
-.pc-name-en{font-size:10px;color:#888;font-family:'DM Mono',monospace;margin-top:1px;}
-.pc-colors{display:flex;gap:4px;flex-wrap:wrap;margin-top:5px;}
-.pc-color{font-size:9px;padding:2px 7px;border-radius:99px;background:#fff;border:1px solid #e0e0e0;color:#555;}
-.pc-body{padding:10px 12px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start;}
-.pc-copy-section{}
-.pc-copy{font-size:11px;color:#333;line-height:1.75;margin-bottom:8px;}
-.pc-points{display:flex;flex-direction:column;gap:4px;margin-bottom:6px;}
-.pc-pt{font-size:10px;color:#444;display:flex;align-items:flex-start;gap:5px;line-height:1.5;}
-.pc-pt::before{content:'✔';color:#111;flex-shrink:0;}
-.pc-set{font-size:10px;color:#888;padding:4px 8px;background:#f5f5f3;border-radius:4px;border:1px solid #eee;display:inline-block;margin-top:2px;}
-.pc-anim{font-size:10px;color:#7c3aed;padding:4px 8px;background:#faf5ff;border-radius:4px;border:1px solid #ddd8fe;display:inline-block;margin-top:4px;font-family:'DM Mono',monospace;}
-.pc-photos{display:flex;flex-direction:column;gap:4px;align-items:flex-end;}
-.pc-photo{width:54px;height:54px;border-radius:5px;border:1px solid #e0e0e0;background:#f5f5f3;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;font-size:9px;color:#ccc;}
-.pc-photo img{width:100%;height:100%;object-fit:cover;}
-.pc-photo-tag{position:absolute;bottom:0;left:0;right:0;font-size:7px;background:rgba(0,0,0,.5);color:#fff;text-align:center;padding:1px;}
-.pc-fn{font-size:8px;color:#888;font-family:'DM Mono',monospace;text-align:center;max-width:54px;word-break:break-all;line-height:1.3;margin-top:2px;}
-
-/* ── 배너 슬라이드 ── */
-.banner-guide-note{font-size:10px;color:#888;padding:7px 10px;background:#fafafa;border-radius:6px;border:1px solid #f0f0f0;margin-bottom:12px;font-family:'DM Mono',monospace;}
-.banner-section-lbl{font-size:9px;font-family:'DM Mono',monospace;color:#aaa;letter-spacing:.5px;margin-bottom:7px;text-transform:uppercase;}
-.banner-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px;}
-.banner-card{border:1px solid #f0f0f0;border-radius:8px;padding:10px 12px;background:#fafafa;}
-.bc-type{font-size:9px;font-family:'DM Mono',monospace;color:#aaa;letter-spacing:.3px;margin-bottom:5px;}
-.bc-main{font-size:12px;font-weight:600;color:#111;line-height:1.5;}
-.bc-sub{font-size:11px;color:#555;margin-top:4px;line-height:1.6;}
 
 /* ── 로딩 / 에러 ── */
 .loading{display:none;flex-direction:column;align-items:center;padding:3rem;gap:14px;}
@@ -930,162 +946,148 @@ function renderSlides(r) {
   const out = document.getElementById('slides-out');
   out.innerHTML = '';
   const layout = r.image_layout || [];
-  const kvPhotos = layout.filter(l => l.role === 'KV메인' || l.role === 'KV');
-  const subPhotos = layout.filter(l => l.role === '서브컷');
-
-  // ── Slide 01: PC 키비주얼
-  const kvSlots = kvPhotos.length
-    ? kvPhotos.map(l => {
-        const p = getPhotoByIdx(l.image_index);
-        return p
-          ? `<div><div class="ph-slot"><img src="${p.dataUrl}"><div class="ph-slot-tag">KV</div></div>${l.copy_overlay ? `<div class="ph-filename">${l.copy_overlay.slice(0,12)}</div>` : ''}</div>`
-          : '<div class="ph-slot">KV</div>';
-      }).join('')
-    : '<div class="ph-slot">KV1</div><div class="ph-slot">KV2</div><div class="ph-slot">KV3</div>';
-
-  const subSlots = subPhotos.map(l => {
-    const p = getPhotoByIdx(l.image_index);
-    return p ? `<div><div class="ph-slot"><img src="${p.dataUrl}"><div class="ph-slot-tag">SUB</div></div></div>` : '';
-  }).join('');
-
-  // 레퍼런스 URL 표시
-  const refNotes = refUrls.map(u => `<div class="ref-note">*레퍼런스: <strong>${u}</strong></div>`).join('');
-
-  out.appendChild(makeSlide('01', 'PC · 키비주얼',
-    r.design_request ? r.design_request.slice(0, 40) + (r.design_request.length > 40 ? '...' : '') : '—',
-    '—',
-    `<div class="kv-layout">
-      <div>
-        <div class="kv-copy-box">
-          <div>
-            <div class="kv-lbl">HEADLINE</div>
-            <div class="kv-headline">${r.concept?.headline || ''}</div>
-            <div class="kv-sub-en">${r.concept?.sub_headline || ''}</div>
-            <div class="kv-tagline">${r.concept?.tagline || ''}</div>
-          </div>
-          <div>
-            <div class="kv-main-copy">${r.main_copy?.main || ''}</div>
-            <div class="kv-sub-copy">${r.main_copy?.sub || ''}</div>
-            <span class="kv-cta">${r.main_copy?.cta || ''}</span>
-          </div>
-        </div>
-        <div class="kv-desc-box" style="margin-top:10px;">
-          <div class="kv-desc-lbl">DESCRIPTION</div>
-          <div class="kv-desc-text">${r.concept?.description || ''}</div>
-        </div>
-        ${r.design_mood ? `<div class="mood-box"><strong>DESIGN MOOD GUIDE</strong>${r.design_mood}</div>` : ''}
-        ${r.design_request ? `<div class="design-req-box"><strong>디자인 요청사항</strong>${r.design_request}</div>` : ''}
-        ${refNotes}
-      </div>
-      <div>
-        <div class="kv-ph-lbl">KEY VISUAL SHOTS</div>
-        <div class="kv-ph-grid">${kvSlots}</div>
-        ${subSlots ? `<div class="kv-ph-lbl" style="margin-top:10px;">SUB SHOTS</div><div class="kv-ph-grid">${subSlots}</div>` : ''}
-      </div>
-    </div>`
-  ));
-
-  // ── Slide 02: PC 상품 상세
   const allProds = r.products || [];
   const secNums = [...new Set(allProds.map(p => p.section_num || 1))];
-  const prodDetailHtml = secNums.map(sn => {
+  const brandName = brand ? (DNA[brand]?.name || '').toUpperCase() : '';
+
+  const wrap = document.createElement('div');
+  wrap.className = 'sb-wrap';
+
+  // ── 탭 바 ─────────────────────────────────
+  const tabBar = document.createElement('div');
+  tabBar.className = 'sb-tabs';
+  tabBar.innerHTML = `
+    <div class="sb-tab yellow">이미지 파일명</div>
+    <div class="sb-tab blue">디자인 요청사항</div>
+    <div class="sb-tab cyan">피쿨 요청사항</div>
+    <div class="sb-tab dark">비주얼 레퍼런스 / 요청사항</div>`;
+  wrap.appendChild(tabBar);
+
+  // ── KV 배너 섹션 ──────────────────────────
+  const kvLayouts = layout.filter(l => l.role === 'KV메인' || l.role === 'KV');
+  const kvVariants = kvLayouts.length
+    ? kvLayouts.map((kv, i) => ({ label: `A${i+1}`, photo: photos[kv.image_index] || null, overlay: kv.copy_overlay }))
+    : [{ label: 'A1', photo: null, overlay: r.concept?.headline }, { label: 'A2', photo: null, overlay: r.concept?.headline }];
+
+  const kvRow = document.createElement('div');
+  kvRow.className = 'sb-row';
+  kvRow.innerHTML = `
+    <div class="sb-row-hdr">
+      <span class="sb-row-label">A — PC / MO 키비주얼</span>
+      ${r.design_request ? `<span style="font-size:10px;color:#aaa;margin-left:8px;">${r.design_request.slice(0,60)}</span>` : ''}
+      <button class="sl-copy-btn" onclick="copySection(this)">복사</button>
+    </div>
+    <div class="kv-banners-row">
+      ${kvVariants.map(v => `
+        <div class="kv-banner-wrap">
+          <div class="kv-banner-badge">${v.label}</div>
+          <div class="kv-banner">
+            ${v.photo
+              ? `<img src="${v.photo.dataUrl}">`
+              : `<div class="kv-banner-ph"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><div>KV 화보 업로드</div></div>`}
+            <div class="kv-banner-overlay">
+              <div class="kv-brand-lbl">${brandName}</div>
+              <div class="kv-banner-headline">${r.concept?.headline || ''}</div>
+              <div class="kv-banner-sub">${r.concept?.sub_headline || ''}</div>
+            </div>
+          </div>
+          <div class="kv-banner-info">
+            <div class="kv-info-lbl">MAIN COPY</div>
+            <div class="kv-info-main">${r.main_copy?.main || ''}</div>
+            <div class="kv-info-sub">${r.main_copy?.sub || ''}</div>
+          </div>
+        </div>`).join('')}
+    </div>
+    <div class="sb-design-row">
+      <div class="sb-design-col">
+        <div class="sb-col-label">CONCEPT DESCRIPTION</div>
+        <div class="sb-col-text">${r.concept?.description || '—'}</div>
+        ${r.concept?.tagline ? `<div style="margin-top:6px;font-size:10px;color:#888;font-style:italic;">"${r.concept.tagline}"</div>` : ''}
+      </div>
+      <div class="sb-design-col">
+        <div class="sb-col-label">DESIGN MOOD GUIDE</div>
+        <div class="sb-col-text">${r.design_mood || '—'}</div>
+        ${refUrls.length ? `<div style="margin-top:8px;">${refUrls.map(u=>`<div style="font-size:9px;color:#aaa;font-family:'DM Mono',monospace;margin-top:3px;">▸ ${u}</div>`).join('')}</div>` : ''}
+      </div>
+    </div>`;
+  wrap.appendChild(kvRow);
+
+  // ── 상품 섹션들 ────────────────────────────
+  const sectionLetters = ['B','C','D','E','F','G'];
+  const badgeCls = ['cl-b','cl-c','cl-d','cl-e','cl-f','cl-b'];
+
+  secNums.forEach((sn, si) => {
     const sec = sections.find(s => s.catNum === sn);
     const secProds = allProds.filter(p => (p.section_num || 1) === sn);
-    const secCatName = sec?.catName || `카테고리 ${sn}`;
-    const prodCards = secProds.map(prod => {
-      const prodPhotos = layout.filter(l => l.product_num === prod.num && l.role !== 'KV메인' && l.role !== 'KV' && l.role !== '서브컷');
-      const photoSlots = prodPhotos.length
-        ? prodPhotos.map(l => {
-            const p = getPhotoByIdx(l.image_index);
-            return p ? `<div><div class="pc-photo"><img src="${p.dataUrl}"><div class="pc-photo-tag">${l.role === '상품상세' ? '상품' : l.role}</div></div></div>` : '';
-          }).join('')
-        : `<div class="pc-photo" style="font-size:9px;color:#ccc;">${prod.num}A</div>`;
+    const catName = sec?.catName || `카테고리 ${sn}`;
+    const letter = sectionLetters[si] || String.fromCharCode(66 + si);
+    const cls = badgeCls[si] || 'cl-b';
 
-      const filenames = (prod.filenames || []).map(fn => `<div class="pc-fn">${fn}</div>`).join('');
-      const inputProd = sections.flatMap(s => s.products).find(p => p.num === prod.num);
-      const animLabel = inputProd?.anim || prod.anim || '페이드인-아웃';
+    const prodSection = document.createElement('div');
+    prodSection.className = 'sb-prod-section';
 
-      return `<div class="prod-card">
-        <div class="pc-hdr">
-          <span class="pc-num">${prod.num}</span>
-          <div class="pc-info">
-            <div class="pc-name">${prod.name_kr || ''}</div>
-            <div class="pc-name-en">${prod.name_en || ''}</div>
-            <div class="pc-colors">${(prod.colors || []).map(c => `<span class="pc-color">${c} ›</span>`).join('')}</div>
+    const prodsHtml = secProds.map((prod, pi) => {
+      const prodLayouts = layout.filter(l => l.product_num === prod.num && l.role !== 'KV메인' && l.role !== 'KV' && l.role !== '서브컷');
+      const mainPhoto = prodLayouts[0] ? photos[prodLayouts[0].image_index] || null : null;
+
+      // Look 1~3
+      const looks = [0, 1, 2].map(li => {
+        const item = prodLayouts[li] || null;
+        const p = item ? photos[item.image_index] || null : null;
+        return { photo: p, copy: item?.copy_overlay || '' };
+      });
+
+      const looksHtml = looks.map((lk, li) => `
+        <div class="sb-look-col">
+          <div class="sb-look-col-hdr">LOOK ${li + 1}</div>
+          <div class="sb-look-photo">
+            ${lk.photo
+              ? `<img src="${lk.photo.dataUrl}">`
+              : `<div class="sb-look-photo-ph">${prod.num}${String.fromCharCode(65+li)}</div>`}
           </div>
-        </div>
-        <div class="pc-body">
-          <div class="pc-copy-section">
-            <div class="pc-copy">${prod.description || ''}</div>
-            <div class="pc-points">${(prod.points || []).map(pt => `<div class="pc-pt">${pt}</div>`).join('')}</div>
-            ${prod.set_item ? `<div class="pc-set">SET — ${prod.set_item}</div>` : ''}
-            <div class="pc-anim">*${animLabel}</div>
+          ${lk.copy ? `<div class="sb-look-copy">${lk.copy}</div>` : ''}
+        </div>`).join('');
+
+      const filesHtml = (prod.filenames||[]).length
+        ? `<div class="sb-pc-files">${prod.filenames.join('<br>')}</div>` : '';
+
+      return `
+        <div class="sb-prod-row">
+          <div class="sb-prod-main">
+            <div class="sb-prod-main-label">#${pi+1}. ${catName.toUpperCase()}</div>
+            <div class="sb-prod-main-photo">
+              ${mainPhoto
+                ? `<img src="${mainPhoto.dataUrl}">`
+                : `<div class="sb-prod-main-photo-ph">대표컷<br>${prod.num}</div>`}
+            </div>
           </div>
-          <div class="pc-photos">${photoSlots}${filenames}</div>
-        </div>
-      </div>`;
+          <div class="sb-look-area">
+            <div class="sb-look-cols">${looksHtml}</div>
+          </div>
+          <div class="sb-prod-copy">
+            <div class="sb-pc-name">${prod.name_kr || ''}</div>
+            <div class="sb-pc-name-en">${prod.name_en || ''}</div>
+            <div class="sb-pc-colors">${(prod.colors||[]).map(c=>`<span class="sb-pc-color">${c}</span>`).join('')}</div>
+            <div class="sb-pc-desc">${prod.description || ''}</div>
+            <div class="sb-pc-points">${(prod.points||[]).map(pt=>`<div class="sb-pc-pt">${pt}</div>`).join('')}</div>
+            ${prod.set_item ? `<div class="sb-pc-set">SET — ${prod.set_item}</div>` : ''}
+            <div class="sb-pc-anim">*${prod.anim || '페이드인-아웃'}</div>
+            ${filesHtml}
+          </div>
+        </div>`;
     }).join('');
 
-    return `<div class="prod-section-hdr">
-      <span class="prod-section-num">${sn}.</span>
-      <span class="prod-section-name">${secCatName}</span>
-    </div>
-    <div class="prod-cards">${prodCards}</div>`;
-  }).join('');
-
-  out.appendChild(makeSlide('02', 'PC · 상품 상세', '—', `*A,B,C) ${allProds[0]?.anim || '페이드인-아웃'}`, prodDetailHtml));
-
-  // ── Slide 03: MO 키비주얼
-  out.appendChild(makeSlide('03', 'MO · 키비주얼', r.design_request ? r.design_request.slice(0,40)+'...' : '—', '*A) 앵커',
-    `<div class="kv-copy-box" style="margin-bottom:10px;">
-      <div>
-        <div class="kv-headline" style="font-size:20px;">${r.concept?.headline || ''}</div>
-        <div class="kv-sub-en">${r.concept?.sub_headline || ''}</div>
-        <div class="kv-tagline">${r.concept?.tagline || ''}</div>
+    prodSection.innerHTML = `
+      <div class="sb-prod-section-hdr">
+        <span class="sb-sec-badge ${cls}">${letter}</span>
+        <span class="sb-sec-name">${catName}</span>
+        <button class="sl-copy-btn" onclick="copySection(this)">복사</button>
       </div>
-      <div>
-        <div class="kv-main-copy">${r.main_copy?.main || ''}</div>
-        <div class="kv-sub-copy">${r.main_copy?.sub || ''}</div>
-        <span class="kv-cta">${r.main_copy?.cta || ''}</span>
-      </div>
-    </div>
-    <div class="kv-desc-box">
-      <div class="kv-desc-lbl">MO DESCRIPTION</div>
-      <div class="kv-desc-text">${r.concept?.description_mo || r.concept?.description || ''}</div>
-    </div>
-    ${secNums.map(sn => {
-      const sec = sections.find(s => s.catNum === sn);
-      return `<div style="margin-top:8px;font-size:11px;font-weight:600;color:#111;">${sn}. ${sec?.catName || `카테고리 ${sn}`}</div>`;
-    }).join('')}`
-  ));
+      ${prodsHtml}`;
+    wrap.appendChild(prodSection);
+  });
 
-  // ── Slide 04: MO 상품 상세
-  const moProdHtml = secNums.map(sn => {
-    const sec = sections.find(s => s.catNum === sn);
-    const secProds = allProds.filter(p => (p.section_num || 1) === sn);
-    return `<div class="prod-section-hdr">
-      <span class="prod-section-num">${sn}.</span>
-      <span class="prod-section-name">${sec?.catName || `카테고리 ${sn}`}</span>
-    </div>
-    <div class="prod-cards">${secProds.map(prod => `
-      <div class="prod-card">
-        <div class="pc-hdr">
-          <span class="pc-num">${prod.num}</span>
-          <div class="pc-info">
-            <div class="pc-name">${prod.name_kr || ''}</div>
-            <div class="pc-colors">${(prod.colors || []).map(c => `<span class="pc-color">${c} ›</span>`).join('')}</div>
-          </div>
-        </div>
-        <div class="pc-body">
-          <div class="pc-points">${(prod.points || []).map(pt => `<div class="pc-pt">${pt}</div>`).join('')}</div>
-          <div class="pc-anim">*${prod.anim || '페이드인-아웃'}</div>
-        </div>
-      </div>`).join('')}</div>`;
-  }).join('');
-
-  out.appendChild(makeSlide('04', 'MO · 상품 상세', '—', `*A,B,C) ${allProds[0]?.anim || '페이드인-아웃'}`, moProdHtml));
-
-  // ── Slide 05: 배너 카피
+  // ── 배너 카피 섹션 ─────────────────────────
   const bc = r.banner_copy || {};
   const bannerItems = [
     { type: '메인 탑 배너 (PC/MO)', main: bc.main_top, sub: bc.main_top_sub },
@@ -1093,19 +1095,37 @@ function renderSlides(r) {
     { type: '프로모션 카테고리', main: bc.promotion, sub: bc.promotion_sub },
     { type: '모달 팝업', main: bc.modal, sub: bc.modal_sub },
   ].filter(b => b.main);
-  if (r.benefit_copy) bannerItems.push({ type: '혜택 카피', main: r.benefit_copy, sub: '' });
+  if (r.benefit_copy) bannerItems.push({ type: '혜택 카피', main: r.benefit_copy });
 
-  out.appendChild(makeSlide('05', '배너 카피 가이드', '—', '—',
-    `<div class="banner-guide-note">*배너 카피 가이드: 메인 최대 2줄 / 서브카피 최대 2줄 *기본 베리에이션 배너 + 모달 팝업 배너</div>
-    <div class="banner-section-lbl">자사몰 — PC / MO</div>
-    <div class="banner-grid">${bannerItems.map(b =>
-      `<div class="banner-card">
-        <div class="bc-type">${b.type}</div>
-        <div class="bc-main">${b.main || ''}</div>
-        ${b.sub ? `<div class="bc-sub">${b.sub}</div>` : ''}
-      </div>`
-    ).join('')}</div>`
-  ));
+  const bannerRow = document.createElement('div');
+  bannerRow.className = 'sb-row';
+  bannerRow.innerHTML = `
+    <div class="sb-row-hdr">
+      <span class="sb-row-label">배너 카피 가이드 — PC / MO</span>
+      <button class="sl-copy-btn" onclick="copySection(this)">복사</button>
+    </div>
+    <div class="sb-banner-wrap">
+      <div class="sb-banner-note">*배너 카피 가이드: 메인 최대 2줄 / 서브카피 최대 2줄 &nbsp;*기본 베리에이션 배너 + 모달 팝업 배너</div>
+      <div class="sb-banner-grid">
+        ${bannerItems.map(b => `
+          <div class="sb-banner-card">
+            <div class="sb-bc-type">${b.type}</div>
+            <div class="sb-bc-main">${b.main || ''}</div>
+            ${b.sub ? `<div class="sb-bc-sub">${b.sub}</div>` : ''}
+          </div>`).join('')}
+      </div>
+    </div>`;
+  wrap.appendChild(bannerRow);
+
+  out.appendChild(wrap);
+}
+
+function copySection(btn) {
+  const text = btn.closest('.sb-row, .sb-prod-section')?.innerText || '';
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '완료';
+    setTimeout(() => btn.textContent = '복사', 1500);
+  });
 }
 
 // ── Figma 전송 ────────────────────────────
