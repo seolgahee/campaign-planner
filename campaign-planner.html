@@ -221,9 +221,65 @@ textarea{resize:vertical;min-height:70px;line-height:1.6;}
 .sb-bc-main{font-size:12px;font-weight:600;color:#111;line-height:1.5;}
 .sb-bc-sub{font-size:10px;color:#555;margin-top:3px;line-height:1.6;}
 
-/* 슬라이드 복사 버튼 (하위호환) */
+/* 슬라이드 복사 버튼 */
 .sl-copy-btn{font-size:10px;padding:4px 9px;border-radius:4px;border:1px solid #e0e0e0;background:#fff;color:#888;cursor:pointer;margin-left:auto;transition:all .15s;}
 .sl-copy-btn:hover{border-color:#555;color:#555;}
+
+/* KV 사이즈 라벨 */
+.kv-size-tag{display:inline-flex;align-items:center;gap:4px;font-size:9px;font-family:'DM Mono',monospace;background:#f5c400;color:#222;font-weight:700;border-radius:3px;padding:2px 6px;margin-right:6px;}
+.kv-page-tag{font-size:9px;font-family:'DM Mono',monospace;color:#fff;background:#555;border-radius:3px;padding:2px 7px;}
+
+/* 소구포인트 섹션 */
+.sb-sogu-section{border-top:1px solid #f0f0f0;}
+.sb-sogu-hdr{font-size:8px;font-family:'DM Mono',monospace;color:#aaa;letter-spacing:.5px;padding:6px 14px;background:#fafafa;border-bottom:1px solid #f0f0f0;text-transform:uppercase;}
+.sb-sogu-list{padding:12px 14px;display:flex;flex-direction:column;gap:14px;}
+.sb-sogu-item{display:grid;grid-template-columns:80px 1fr;gap:12px;align-items:start;}
+.sb-sogu-photo{aspect-ratio:1;background:#ebebeb;border-radius:6px;overflow:hidden;display:flex;align-items:center;justify-content:center;position:relative;}
+.sb-sogu-photo img{width:100%;height:100%;object-fit:cover;border-radius:6px;}
+.sb-sogu-photo-ph{font-size:8px;color:#ccc;font-family:'DM Mono',monospace;text-align:center;}
+.sb-sogu-text{}
+.sb-sogu-pt-label{font-size:9px;font-weight:700;color:#111;font-family:'DM Mono',monospace;margin-bottom:3px;letter-spacing:.3px;}
+.sb-sogu-pt-title{font-size:11px;font-weight:600;color:#111;margin-bottom:4px;line-height:1.4;}
+.sb-sogu-pt-body{font-size:10px;color:#555;line-height:1.8;}
+
+/* 나레이션 + 폴라로이드 섹션 */
+.sb-narrative-section{border-top:2px solid #f0f0f0;display:grid;grid-template-columns:1fr 1fr;}
+.sb-narrative-col{padding:14px 16px;border-right:1px solid #f0f0f0;}
+.sb-narrative-col:last-child{border-right:none;}
+.sb-narrative-label{font-size:9px;font-family:'DM Mono',monospace;font-weight:700;color:#111;background:#f0f0f0;border-radius:3px;padding:2px 7px;display:inline-block;margin-bottom:8px;}
+.sb-narrative-title{font-size:14px;font-weight:700;color:#111;margin-bottom:6px;line-height:1.3;}
+.sb-narrative-desc{font-size:11px;color:#555;line-height:1.8;margin-bottom:10px;}
+.sb-polaroid-grid{display:flex;flex-wrap:wrap;gap:8px;}
+.sb-polaroid{background:#fff;border:1px solid #e0e0e0;border-radius:3px;padding:4px 4px 20px;box-shadow:0 2px 6px rgba(0,0,0,.08);position:relative;width:80px;}
+.sb-polaroid img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:2px;display:block;}
+.sb-polaroid-ph{width:100%;aspect-ratio:1;background:#f0f0f0;border-radius:2px;display:flex;align-items:center;justify-content:center;}
+.sb-polaroid-ph span{font-size:8px;color:#ccc;}
+
+/* 쿠폰/혜택 배너 mockup */
+.sb-coupon-section{border-top:1px solid #f0f0f0;padding:12px 14px;}
+.sb-coupon-lbl{font-size:8px;font-family:'DM Mono',monospace;color:#aaa;letter-spacing:.5px;margin-bottom:8px;}
+.sb-coupon-banner{background:#111;border-radius:6px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;}
+.sb-coupon-text{color:#fff;}
+.sb-coupon-main{font-size:13px;font-weight:700;margin-bottom:2px;}
+.sb-coupon-sub{font-size:10px;color:rgba(255,255,255,.65);}
+.sb-coupon-badge{background:#f5c400;color:#111;font-size:18px;font-weight:800;border-radius:6px;padding:8px 16px;font-family:'DM Mono',monospace;line-height:1;}
+.sb-coupon-badge span{font-size:11px;font-weight:600;}
+
+/* 모바일 미리보기 */
+.sb-mobile-col{border-left:3px solid #f5c400;background:#fafafa;padding:12px;min-width:140px;}
+.sb-mobile-label{font-size:8px;font-family:'DM Mono',monospace;font-weight:700;color:#aaa;letter-spacing:.5px;margin-bottom:8px;text-align:center;}
+.sb-mobile-frame{background:#fff;border:1px solid #e0e0e0;border-radius:8px;overflow:hidden;}
+.sb-mobile-kv{background:#222;aspect-ratio:9/16;max-height:180px;position:relative;overflow:hidden;display:flex;align-items:flex-end;}
+.sb-mobile-kv img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.82;}
+.sb-mobile-overlay{position:relative;z-index:1;padding:8px;background:linear-gradient(transparent,rgba(0,0,0,.6));width:100%;}
+.sb-mobile-headline{font-size:12px;font-weight:800;color:#fff;line-height:1.1;}
+.sb-mobile-sub{font-size:8px;color:rgba(255,255,255,.75);margin-top:2px;}
+.sb-mobile-ph{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;color:#bbb;font-size:9px;height:100%;}
+
+/* KV 설명 텍스트 행 */
+.sb-kv-desc-row{padding:12px 20px;border-top:1px solid #f0f0f0;text-align:center;background:#fff;}
+.sb-kv-desc-main{font-size:12px;font-weight:600;color:#111;margin-bottom:4px;}
+.sb-kv-desc-sub{font-size:11px;color:#666;line-height:1.7;}
 
 /* ── 로딩 / 에러 ── */
 .loading{display:none;flex-direction:column;align-items:center;padding:3rem;gap:14px;}
@@ -969,45 +1025,71 @@ function renderSlides(r) {
     ? kvLayouts.map((kv, i) => ({ label: `A${i+1}`, photo: photos[kv.image_index] || null, overlay: kv.copy_overlay }))
     : [{ label: 'A1', photo: null, overlay: r.concept?.headline }, { label: 'A2', photo: null, overlay: r.concept?.headline }];
 
+  // 모바일 KV용 첫 번째 KV 사진
+  const firstKvPhoto = kvLayouts[0] ? photos[kvLayouts[0].image_index] || null : null;
+
   const kvRow = document.createElement('div');
   kvRow.className = 'sb-row';
   kvRow.innerHTML = `
     <div class="sb-row-hdr">
+      <span class="kv-page-tag">페이드인 자이</span>
+      <span class="kv-size-tag">1166 × 150</span>
       <span class="sb-row-label">A — PC / MO 키비주얼</span>
-      ${r.design_request ? `<span style="font-size:10px;color:#aaa;margin-left:8px;">${r.design_request.slice(0,60)}</span>` : ''}
+      ${r.design_request ? `<span style="font-size:10px;color:#aaa;margin-left:8px;">${r.design_request.slice(0,50)}</span>` : ''}
       <button class="sl-copy-btn" onclick="copySection(this)">복사</button>
     </div>
-    <div class="kv-banners-row">
-      ${kvVariants.map(v => `
-        <div class="kv-banner-wrap">
-          <div class="kv-banner-badge">${v.label}</div>
-          <div class="kv-banner">
-            ${v.photo
-              ? `<img src="${v.photo.dataUrl}">`
-              : `<div class="kv-banner-ph"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><div>KV 화보 업로드</div></div>`}
-            <div class="kv-banner-overlay">
-              <div class="kv-brand-lbl">${brandName}</div>
-              <div class="kv-banner-headline">${r.concept?.headline || ''}</div>
-              <div class="kv-banner-sub">${r.concept?.sub_headline || ''}</div>
+    <div style="display:grid;grid-template-columns:1fr 140px;">
+      <div>
+        <div class="kv-banners-row">
+          ${kvVariants.map(v => `
+            <div class="kv-banner-wrap">
+              <div class="kv-banner-badge">${v.label}</div>
+              <div class="kv-banner">
+                ${v.photo
+                  ? `<img src="${v.photo.dataUrl}">`
+                  : `<div class="kv-banner-ph"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><div>KV 화보 업로드</div></div>`}
+                <div class="kv-banner-overlay">
+                  <div class="kv-brand-lbl">${brandName}</div>
+                  <div class="kv-banner-headline">${r.concept?.headline || ''}</div>
+                  <div class="kv-banner-sub">${r.concept?.sub_headline || ''}</div>
+                </div>
+              </div>
+              <div class="kv-banner-info">
+                <div class="kv-info-lbl">MAIN COPY</div>
+                <div class="kv-info-main">${r.main_copy?.main || ''}</div>
+                <div class="kv-info-sub">${r.main_copy?.sub || ''}</div>
+              </div>
+            </div>`).join('')}
+        </div>
+        <div class="sb-kv-desc-row">
+          <div class="sb-kv-desc-main">${r.concept?.tagline || r.main_copy?.main || ''}</div>
+          <div class="sb-kv-desc-sub">${r.concept?.description || ''}</div>
+        </div>
+        <div class="sb-design-row">
+          <div class="sb-design-col">
+            <div class="sb-col-label">CONCEPT DESCRIPTION</div>
+            <div class="sb-col-text">${r.concept?.description || '—'}</div>
+          </div>
+          <div class="sb-design-col">
+            <div class="sb-col-label">DESIGN MOOD GUIDE</div>
+            <div class="sb-col-text">${r.design_mood || '—'}</div>
+            ${refUrls.length ? `<div style="margin-top:8px;">${refUrls.map(u=>`<div style="font-size:9px;color:#aaa;font-family:'DM Mono',monospace;margin-top:3px;">▸ ${u}</div>`).join('')}</div>` : ''}
+          </div>
+        </div>
+      </div>
+      <div class="sb-mobile-col">
+        <div class="sb-mobile-label">모바일</div>
+        <div class="sb-mobile-frame">
+          <div class="sb-mobile-kv">
+            ${firstKvPhoto
+              ? `<img src="${firstKvPhoto.dataUrl}">`
+              : `<div class="sb-mobile-ph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><div>MO 화보</div></div>`}
+            <div class="sb-mobile-overlay">
+              <div class="sb-mobile-headline">${r.concept?.headline || ''}</div>
+              <div class="sb-mobile-sub">${r.main_copy?.main || ''}</div>
             </div>
           </div>
-          <div class="kv-banner-info">
-            <div class="kv-info-lbl">MAIN COPY</div>
-            <div class="kv-info-main">${r.main_copy?.main || ''}</div>
-            <div class="kv-info-sub">${r.main_copy?.sub || ''}</div>
-          </div>
-        </div>`).join('')}
-    </div>
-    <div class="sb-design-row">
-      <div class="sb-design-col">
-        <div class="sb-col-label">CONCEPT DESCRIPTION</div>
-        <div class="sb-col-text">${r.concept?.description || '—'}</div>
-        ${r.concept?.tagline ? `<div style="margin-top:6px;font-size:10px;color:#888;font-style:italic;">"${r.concept.tagline}"</div>` : ''}
-      </div>
-      <div class="sb-design-col">
-        <div class="sb-col-label">DESIGN MOOD GUIDE</div>
-        <div class="sb-col-text">${r.design_mood || '—'}</div>
-        ${refUrls.length ? `<div style="margin-top:8px;">${refUrls.map(u=>`<div style="font-size:9px;color:#aaa;font-family:'DM Mono',monospace;margin-top:3px;">▸ ${u}</div>`).join('')}</div>` : ''}
+        </div>
       </div>
     </div>`;
   wrap.appendChild(kvRow);
@@ -1077,13 +1159,74 @@ function renderSlides(r) {
         </div>`;
     }).join('');
 
+    // ── 소구포인트 Point 레이아웃 (Image5 스타일) ──
+    const allSecPhotos = secProds.flatMap(prod =>
+      layout.filter(l => l.product_num === prod.num && l.role !== 'KV메인' && l.role !== 'KV')
+            .map(l => photos[l.image_index] || null).filter(Boolean)
+    );
+
+    const soguHtml = secProds.flatMap(prod =>
+      (prod.points || []).map((pt, pi) => {
+        const ph = allSecPhotos[pi] || null;
+        // Point 제목과 내용 분리 (콜론 있으면)
+        const colonIdx = pt.indexOf(':');
+        const ptTitle = colonIdx > -1 ? pt.slice(0, colonIdx).trim() : `Point ${pi+1}`;
+        const ptBody = colonIdx > -1 ? pt.slice(colonIdx + 1).trim() : pt;
+        return `
+          <div class="sb-sogu-item">
+            <div class="sb-sogu-photo">
+              ${ph ? `<img src="${ph.dataUrl}">` : `<div class="sb-sogu-photo-ph">${prod.num}${pi+1}</div>`}
+            </div>
+            <div class="sb-sogu-text">
+              <div class="sb-sogu-pt-label">Point ${pi+1}.</div>
+              <div class="sb-sogu-pt-title">${ptTitle}</div>
+              <div class="sb-sogu-pt-body">${ptBody}</div>
+            </div>
+          </div>`;
+      })
+    ).join('');
+
+    // ── 나레이션 + 폴라로이드 ──
+    const narrativeProds = secProds.map((prod, pi) => {
+      const prodPhotos = layout.filter(l => l.product_num === prod.num)
+        .map(l => photos[l.image_index] || null).filter(Boolean);
+      const polaroids = prodPhotos.slice(0, 5).map(p =>
+        `<div class="sb-polaroid"><img src="${p.dataUrl}"></div>`
+      ).join('') || '<div class="sb-polaroid"><div class="sb-polaroid-ph"><span>사진</span></div></div>'.repeat(3);
+
+      return `
+        <div class="sb-narrative-col">
+          <div class="sb-narrative-label">#${pi+1}. ${(prod.name_kr || catName).toUpperCase()}</div>
+          <div class="sb-narrative-title">${prod.name_kr || ''}</div>
+          <div class="sb-narrative-desc">${prod.description || ''}</div>
+          <div class="sb-polaroid-grid">${polaroids}</div>
+        </div>`;
+    }).join('');
+
+    // ── 쿠폰 배너 (혜택 있을 때만) ──
+    const couponHtml = r.benefit_copy ? `
+      <div class="sb-coupon-section">
+        <div class="sb-coupon-lbl">혜택 배너 — PC / MO</div>
+        <div class="sb-coupon-banner">
+          <div class="sb-coupon-text">
+            <div class="sb-coupon-main">${catName} 특별 혜택</div>
+            <div class="sb-coupon-sub">${r.benefit_copy}</div>
+          </div>
+          <div class="sb-coupon-badge">할인<span>%</span></div>
+        </div>
+      </div>` : '';
+
     prodSection.innerHTML = `
       <div class="sb-prod-section-hdr">
         <span class="sb-sec-badge ${cls}">${letter}</span>
         <span class="sb-sec-name">${catName}</span>
+        <span style="font-size:9px;font-family:'DM Mono',monospace;color:#aaa;margin-left:8px;">${secProds.length}개 상품</span>
         <button class="sl-copy-btn" onclick="copySection(this)">복사</button>
       </div>
-      ${prodsHtml}`;
+      ${prodsHtml}
+      ${soguHtml ? `<div class="sb-sogu-section"><div class="sb-sogu-hdr">소구포인트 — 상품 상세 페이지</div><div class="sb-sogu-list">${soguHtml}</div></div>` : ''}
+      <div class="sb-narrative-section">${narrativeProds}</div>
+      ${couponHtml}`;
     wrap.appendChild(prodSection);
   });
 
